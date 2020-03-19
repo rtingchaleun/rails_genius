@@ -1,0 +1,54 @@
+/* Styles for Code blocks */
+
+$code-blue: #ff0066;
+$code-green: #ff0066;
+$code-green-light: #ff0066;
+$code-grey: #ff0066;
+$code-magenta: #ff0066;
+$code-orange: #ff0066;
+$code-red: #ff0066;
+$code-teal: #ff0066;
+$code-yellow: #ffff00;
+
+pre code {
+  font-family: 'Inconsolata', monospace;
+}
+
+code span.attribute {
+  color: #ffff00;
+}
+code span.block {
+  color: #42a5f5; /* blue */
+}
+code span.comment {
+  color: #808080; /* grey */
+}
+code span.constructor {
+  color: #ff5252; /* red accent-2*/
+}
+code span.method {
+  color: #ff9800; /* orange*/
+}
+code span.num {
+  color: #ff00ff; /* magenta */
+}
+code span.erb {
+  color: #ff00ff; /* magenta */
+}
+code span.nil {
+  color: #1de9b6; /* teal accent-3 */
+}
+code span.string {
+  color: #76ff03;  /* light-green accent-3 */
+}
+code span.symbol {
+  color: #4caf50; /* green */
+}
+code span.tag {
+  color: #42a5f5; /* blue */
+}
+
+
+pre.bg-dark {
+  color: #fff;
+}

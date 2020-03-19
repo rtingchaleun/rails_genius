@@ -1,0 +1,15 @@
+<div class="col-md-9 col-xl-8">
+  <main class="px-3">
+    <h1 class="mt-5">Links</h1>
+    <p class="w-75">This article will show how to use Rails Link Helpers with Bootstrap.</p>
+
+    <%= render 'components/partials/links/link_to_tag' %>
+
+  </main>
+</div>
+
+<div class="d-none d-xl-block col-xl-2">
+  <ul class="list-group list-group-flush my-3 p-0">
+    <%= link_to 'Link To Tag', '#link-to-tag', class: 'list-group-item list-group-item-action w-100 p-2 border-0' %>
+  </ul>
+</div>

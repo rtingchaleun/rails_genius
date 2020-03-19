@@ -1,0 +1,43 @@
+<%= render 'layouts/partials/article_header' %>
+
+<article>
+  <h3 class="mt-5">Step 1: Generate the App</h3>
+  <p>Open terminal and navigate to the folder where you want to create the app.</p>
+
+<pre class="bg-light px-3"><code><span class="badge badge-secondary float-right mt-2">TERMINAL</span>
+$ rails new my_first_app
+...
+
+$ cd my_first_app
+$ bundle install
+...
+
+$ rails db:migrate
+...
+
+$ rails server
+...
+
+</code></pre>
+
+  <ul>
+    <li><code>rails new</code> will generate all the files needed to get started.</li>
+    <li><code>my_first_app</code> will be the name of the app.</li>
+    <li>you will need to navigate into the folder <code>my_first_app</code>.</li>
+    <li><code>bundle install</code> will install all the Ruby gems needed to run your application.</li>
+    <li><code>rails db:migrate</code> will create the database.</li>
+    <li><code>rails server</code> will launch a local server.</li>
+  </ul>
+</article>
+
+
+<article>
+  <h3 class="mt-5">Step 2: Check If It's Working</h3>
+  <p>Open your browser and go to <code>http://localhost:3000/</code>.<br>
+  If you see the something like the image below, you've made a basic skeleton Rails app!</p>
+
+  <img src="https://miro.medium.com/max/3366/1*CZ7NSJ-eBpwxYVt5OG7ryw.png" class="img-fluid" alt="Responsive image">
+
+</article>
+
+<%= render 'layouts/partials/article_footer' %>

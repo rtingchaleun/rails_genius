@@ -1,0 +1,38 @@
+<div class="col-md-9 col-xl-8">
+  <main class="px-3">
+    <h1 class="mt-5">Active Record Associations</h1>
+    <p class="w-75">This article will help you understand <code>Active Record</code> and how to make <code>Associations</code>.</p>
+
+    <p class="w-75"><code>Active Record</code> is, basically, the part of Rails that takes care of all the database stuff.
+    It lets you work with your data models (ex. users, posts, comments, followers, etc.) in a nearly plain-English way.
+    </p>
+
+    <p class="w-75"><code>Associations</code> make a connection between two data models,
+      which makes common database operations simpler and easier.
+    </p>
+
+    <%= render 'components/partials/active_record_associations/belongs_to_association' %>
+
+    <%= render 'components/partials/active_record_associations/has_one_association' %>
+
+    <%= render 'components/partials/active_record_associations/has_many_association' %>
+
+    <%= render 'components/partials/active_record_associations/has_one_through_association' %>
+
+    <%= render 'components/partials/active_record_associations/has_many_through_association' %>
+
+    <%= render 'components/partials/active_record_associations/has_and_belongs_to_many_association' %>
+
+  </main>
+</div>
+
+<div class="d-none d-xl-block col-xl-2">
+  <ul class="list-group list-group-flush my-3 p-0">
+    <%= link_to 'belongs_to', '#belongs-to-association', class: 'list-group-item list-group-item-action w-100 p-2 border-0' %>
+    <%= link_to 'has_one', '#has-one-association', class: 'list-group-item list-group-item-action w-100 p-2 border-0' %>
+    <%= link_to 'has_many', '#has-many-association', class: 'list-group-item list-group-item-action w-100 p-2 border-0' %>
+    <%= link_to 'has_one :through', '#has-one-through-association', class: 'list-group-item list-group-item-action w-100 p-2 border-0' %>
+    <%= link_to 'has_many :through', '#has-many-through-association', class: 'list-group-item list-group-item-action w-100 p-2 border-0' %>
+    <%= link_to 'has_and_belongs_to_many', '#has-and-belongs-to-many-association', class: 'list-group-item list-group-item-action w-100 p-2 border-0' %>
+  </ul>
+</div>

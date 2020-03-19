@@ -1,0 +1,26 @@
+<!--
+  -- This is the Add Column to Table Migration component.
+  -- Includes the code and output example.
+-->
+
+<article id="add-column-to-table-migration">
+  <h3 class="mt-5">AddColumnToTable</h3>
+  <p class="w-75">This association declares that each instance of a model 'belongs to' one instance of another model.
+    For example, if your application includes authors and books, and each book can be assigned to exactly one author, you'd declare the book model this way:</p>
+
+  <!-- EXAMPLE -->
+  <div class="example p-4">
+    <div class="col-12 d-flex justify-content-center">
+      <%= image_tag('active_record_associations/belongs_to_association.png', options = { class: 'img-fluid', alt: "Responsive image"}) %>
+    </div>
+  </div>
+  <!-- /EXAMPLE -->
+
+<!-- CODE BLOCK -->
+<pre class="bg-dark px-3"><code><span class="badge badge-secondary float-right mt-2">TERMINAL</span>
+$ rails generate migration AddPartNumberToProducts part_number:string
+
+</code></pre>
+<!-- /CODE BLOCK -->
+
+</article>

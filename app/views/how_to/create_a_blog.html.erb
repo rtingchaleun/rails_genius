@@ -1,0 +1,192 @@
+
+<article>
+  <h3 class="mt-5">Create Multiple Pages</h3>
+  <p class="w-75">Type in Terminal...</p>
+
+<pre class="bg-light px-3"><code><span class="badge badge-secondary float-right mt-2">TERMINAL</span>
+$ rails g controller pages home product pricing
+
+</code></pre>
+
+<p class="w-75">It should have generated <code>app/controllers/pages_controller.rb</code> with the 3 'actions' we specified.</p>
+<pre class="bg-light px-3"><code><span class="badge badge-secondary float-right mt-2">CODE EDITOR</span>
+<span class="block">class</span> PagesController < ApplicationController
+  <span class="block">def</span> home
+  <span class="block">end</span>
+
+  <span class="block">def</span> product
+  <span class="block">end</span>
+
+  <span class="block">def</span> pricing
+  <span class="block">end</span>
+<span class="block">end</span>
+
+</code></pre>
+
+<p class="w-75">It should have also generated their corresponding 'view', or pages.
+  Notice that the pages match the action names and the folder matches the controller name.
+  This is done on purpose because Rails automatically associates them.</p>
+<ul>
+  <li><code>app/views/pages/home.html.erb</code></li>
+  <li><code>app/views/pages/product.html.erb</code></li>
+  <li><code>app/views/pages/pricing.html.erb</code></li>
+</ul>
+</article>
+
+
+<article>
+  <h3 class="mt-5">Set a Home Page</h3>
+  <p class="w-75">Open and edit <code>config/routes.rb</code></p>
+
+<pre class="bg-light px-3"><code><span class="badge badge-secondary float-right mt-2">CODE EDITOR</span>
+Rails.application.routes.draw <span class="block">do</span>
+
+  <span class="comment"># Set Root Path</span>
+  <span class="method">root</span> 'pages#home'
+
+<span class="block">end</span>
+
+</code></pre>
+<p class="w-75">This tells Rails that it can find the root page by going to the
+  <code>PagesController</code> and the <code>home</code> action,
+  which we know directs Rails to <code>pages/home.html.erb</code></p>
+</article>
+
+
+<article>
+  <h3 class="mt-5">Add Bootstrap</h3>
+  <p>Go to the <a href="https://getbootstrap.com/docs/4.4/getting-started/introduction/">Bootstrap website</a>
+    to get their tags. The simplest way to add Bootstrap is to
+    open <code>app/layouts/application.html.erb</code> and add the Bootstrap links,
+    like you would with a normal HTML page.</p>
+
+<pre class="bg-light px-3"><code><span class="badge badge-secondary float-right mt-2">CODE EDITOR</span>
+<span class="block">&lt;!DOCTYPE html&gt;</span>
+<span class="block">&lt;html&gt;</span>
+  <span class="block">&lt;head&gt;</span>
+    <span class="block">&lt;title&gt;</span>Rails Genius<span class="block">&lt;/title&gt;</span>
+    <span class="block">&lt;meta</span> charset="UTF-8"<span class="block">/&gt;</span>
+    <span class="block">&lt;meta</span> name="viewport" content="width=device-width, initial-scale=1.0"<span class="block">/&gt;</span>
+    <span class="block">&lt;%=</span> csrf_meta_tags <span class="block">%&gt;</span>
+    <span class="block">&lt;%=</span> csp_meta_tag <span class="block">%&gt;</span>
+
+    <span class="comment">&lt;!-- COPY PASTE BOOTSTRAP LINKS HERE --&gt;</span>
+    <span class="block">&lt;link</span> rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"<span class="block">/&gt;</span>
+    <span class="block">&lt;script</span> src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"&gt;<span class="block">&lt;/script&gt;</span>
+    <span class="block">&lt;script</span> src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"&gt;<span class="block">&lt;/script&gt;</span>
+    <span class="block">&lt;script</span> src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"&gt;<span class="block">&lt;/script&gt;</span>
+    <span class="comment">&lt;!-- END --&gt;</span>
+
+    <span class="block">&lt;%=</span> stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' <span class="block">%&gt;</span>
+    <span class="block">&lt;%=</span> javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' <span class="block">%&gt;</span>
+  <span class="block">&lt;/head&gt;</span>
+
+  <span class="block">&lt;body&gt;</span>
+    <span class="block">&lt;%=</span> yield <span class="block">%&gt;</span>
+  <span class="block">&lt;/body&gt;</span>
+<span class="block">&lt;/html&gt;</span>
+</code></pre>
+</article>
+
+
+<article>
+  <h3 class="mt-5">Use Bootstrap Templates</h3>
+  <p class="w-75">We are going to use this
+    <a href="https://getbootstrap.com/docs/4.4/examples/cover/">Bootstrap Cover Page Template.</a>
+    Copy the all the HTML code between the <code>&lt;body&gt;</code> tag and
+    paste it in <code>app/views/pages/home.html.erb</code></p>
+
+<pre class="bg-light px-3"><code><span class="badge badge-secondary float-right mt-2">CODE EDITOR</span>
+&lt;div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column"&gt;
+  &lt;header class="masthead mb-auto"&gt;
+    &lt;div class="inner"&gt;
+      &lt;h3 class="masthead-brand"&gt;Cover&lt;/h3&gt;
+      &lt;nav class="nav nav-masthead justify-content-center"&gt;
+        &lt;a class="nav-link active" href="#"&gt;Home&lt;/a&gt;
+        &lt;a class="nav-link" href="#"&gt;Features&lt;/a&gt;
+        &lt;a class="nav-link" href="#"&gt;Contact&lt;/a&gt;
+      &lt;/nav&gt;
+    &lt;/div&gt;
+  &lt;/header&gt;
+
+  &lt;main role="main" class="inner cover"&gt;
+    &lt;h1 class="cover-heading"&gt;Cover your page.&lt;/h1&gt;
+    &lt;p class="lead"&gt;Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.&lt;/p&gt;
+    &lt;p class="lead"&gt;
+      &lt;a href="#" class="btn btn-lg btn-secondary"&gt;Learn more&lt;/a&gt;
+    &lt;/p&gt;
+  &lt;/main&gt;
+
+  &lt;footer class="mastfoot mt-auto"&gt;
+    &lt;div class="inner"&gt;
+      &lt;p&gt;Cover template for &lt;a href="https://getbootstrap.com/"&gt;Bootstrap&lt;/a&gt;, by &lt;a href="https://twitter.com/mdo"&gt;@mdo&lt;/a&gt;.&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/footer&gt;
+&lt;/div&gt;
+
+</code></pre>
+<p class="w-75">You will need to do the same for our other two pages.</p>
+
+<ul>
+  <li><a href="https://getbootstrap.com/docs/4.4/examples/product/">Bootstrap Product Page Template</a></li>
+  <li><a href="https://getbootstrap.com/docs/4.4/examples/pricing/">Bootstrap Pricing Page Template</a></li>
+</ul>
+
+<!-- Image trigger modal -->
+<%= image_tag("use-bootstrap-templates.jpg", class: "img-fluid p-3 shadow", :data => { :target => "#useBootstrapTemplateModal", toggle: "modal" }) %>
+
+<!-- Modal -->
+<div class="modal fade" id="useBootstrapTemplateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Use Bootstrap Template</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= image_tag("use-bootstrap-templates.jpg", class: "img-fluid") %>
+      </div>
+    </div>
+  </div>
+</div>
+
+</article>
+
+
+<article>
+  <h3 class="mt-5">Add the Bootstrap Template's CSS</h3>
+  <p class="w-75">The styles are still not quite right because we are missing a CSS file that the templates use.
+    If you inspect the <code>&lt;body&gt;</code> tag of the Cover Template, you should see a <code>cover.css</code>.
+    Copy the CSS file and paste it in <code>app/stylesheets/cover.scss</code>. Rails will include it automatically.
+
+<p class="w-75">You will need to do the same for the other two pages.</p>
+
+</article>
+
+
+<article>
+  <h3 class="mt-5">Customize Links and URL's</h3>
+  <p class="w-75">Open and edit <code>config/routes.rb</code></p>
+
+<pre class="bg-light px-3"><code><span class="badge badge-secondary float-right mt-2">CODE EDITOR</span>
+Rails.application.routes.draw <span class="block">do</span>
+
+  <span class="comment"># Set Root Path</span>
+  <span class="method">root</span> 'pages#home'
+
+  <span class="comment"># Set Custom URL for Pages </span>
+  <span class="method">get</span> 'product' => 'pages#product'
+  <span class="method">get</span> 'long/useless/deep/link/pricing' => 'pages#pricing'
+
+<span class="block">end</span>
+
+</code></pre>
+<p>By default, the product page URL will be <code>http://localhost:3000/pages/product</code>,
+  matching the Controller and Action name.</p>
+<ul>
+  <li><code>http://localhost:3000/product</code> will now show <code>app/views/pages/product.html.erb</code></li>
+  <li><code>http://localhost:3000/long/useless/deep/link/pricing</code> will now show <code>app/views/pages/pricing.html.erb</code></li>
+</ul>
+</article>

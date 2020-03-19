@@ -1,0 +1,30 @@
+<!--
+  -- This is the Responsive Images component.
+  -- Includes the code and output example.
+-->
+
+<article id="image-tag">
+  <h3 class="mt-5">Image Tag</h3>
+  <pre>image_tag(source, options = { })</pre>
+
+  <!-- EXAMPLE -->
+  <div class="example p-4">
+    <div class="col-sm-9 col-md-6 pb-3">
+      <%= image_tag('https://www.solidbackgrounds.com/images/2560x1440/2560x1440-davys-grey-solid-color-background.jpg', options = { class: 'img-fluid', alt: "Responsive image"}) %>
+    </div>
+  </div>
+  <!-- /EXAMPLE -->
+
+<!-- CODE BLOCK -->
+<pre class="bg-dark px-3"><code><span class="badge badge-secondary float-right mt-2">HTML.ERB</span>
+<span class="comment"># absolute URL</span>
+<span class="block">&lt;%=</span> <span class="method">image_tag</span>(<span class="string">'https://www.solidbackgrounds.com/images/2560x1440/2560x1440-davys-grey-solid-color-background.jpg'</span>, options = { class: <span class="string">'img-fluid'</span>, alt: <span class="string">'Responsive image'</span> }) <span class="block">%&gt;</span>
+
+<span class="comment"># relative URL</span>
+<span class="block">&lt;%=</span> <span class="method">image_tag</span>(<span class="string">'icon.jpg'</span>, options = { class: <span class="string">'img-fluid'</span>, alt: <span class="string">'Responsive image'</span> }) <span class="block">%&gt;</span>
+<span class="comment"># => &lt;img src="/assets/icon.jpg" /&gt;</span>
+
+</code></pre>
+<!-- /CODE BLOCK -->
+
+</article>

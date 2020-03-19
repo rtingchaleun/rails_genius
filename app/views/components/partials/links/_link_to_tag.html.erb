@@ -1,0 +1,35 @@
+<!--
+  -- This is the Link To Tag component.
+  -- Includes the code and output example.
+-->
+
+<article id="link-to-tag">
+  <h3 class="mt-5">Link To Tag</h3>
+  <pre>link_to(name, url_options = nil, html_options = nil)</pre>
+
+  <!-- EXAMPLE -->
+  <div class="example p-4">
+    <div class="col-sm-9 col-md-6 pb-3">
+      <%= link_to 'A Basic Link to Bootstrap', 'https://getbootstrap.com/', html_options = { id: '', class: 'link-to-class' } %>
+    </div>
+    <div class="col-sm-9 col-md-6 pb-3">
+      <%= link_to 'A Link to Same Page', '#section-id', html_options = { id: '', class: 'link-to-class' } %>
+    </div>
+    <div class="col-sm-9 col-md-6 pb-3">
+      <%= link_to 'A Link that Opens in a New Tab', 'https://getbootstrap.com/', html_options = { id: '', class: 'link-to-class', target: '_blank' } %>
+    </div>
+  </div>
+  <!-- /EXAMPLE -->
+
+<!-- CODE BLOCK -->
+<pre class="bg-dark px-3"><code><span class="badge badge-secondary float-right mt-2">HTML.ERB</span>
+<span class="block">&lt;%=</span> <span class="method">link_to</span> <span class="string">'A Basic Link to Bootstrap'</span>, <span class="string">'https://getbootstrap.com/'</span>, html_options = { id: <span class="string">''</span>, class: <span class="string">'link-to-class'</span> } <span class="block">%&gt;</span>
+
+<span class="block">&lt;%=</span> <span class="method">link_to</span> <span class="string">'A Link to Same Page'</span>, <span class="string">'#section-id'</span>, html_options = { id: <span class="string">''</span>, class: <span class="string">'link-to-class'</span> } <span class="block">%&gt;</span>
+
+<span class="block">&lt;%=</span> <span class="method">link_to</span> <span class="string">'A Link that Opens in a New Tab'</span>, <span class="string">'https://getbootstrap.com/'</span>, html_options = { id: <span class="string">''</span>, class: <span class="string">'link-to-class'</span>, target: <span class="string">'_blank'</span> } <span class="block">%&gt;</span>
+
+</code></pre>
+<!-- /CODE BLOCK -->
+
+</article>

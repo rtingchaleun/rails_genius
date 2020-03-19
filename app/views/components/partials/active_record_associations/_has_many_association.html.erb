@@ -1,0 +1,27 @@
+<!--
+  -- This is the Has Many Association component.
+  -- Includes the code and output example.
+-->
+
+<article id="has-many-association">
+  <h3 class="mt-5">has_many</h3>
+  <p class="w-75">You'll often find this association on the "other side" of a <code>belongs_to</code> association. This association indicates that each instance of the model has zero or more instances of another model. For example, in an application containing authors and books, the author model could be declared like this:</p>
+
+  <!-- EXAMPLE -->
+  <div class="example p-4">
+    <div class="col-12 d-flex justify-content-center">
+      <%= image_tag('active_record_associations/has_many_association.png', options = { class: 'img-fluid', alt: "Responsive image"}) %>
+    </div>
+  </div>
+  <!-- /EXAMPLE -->
+
+<!-- CODE BLOCK -->
+<pre class="bg-dark px-3"><code><span class="badge badge-secondary float-right mt-2">RUBY</span>
+<span class="block">class</span> Author &lt; ApplicationRecord
+  <span class="method">has_many</span> <span class="symbol">:books</span>
+<span class="block">end</span>
+
+</code></pre>
+<!-- /CODE BLOCK -->
+
+</article>

@@ -1,0 +1,13 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-white my-3 p-0">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#sidebarNav" aria-controls="sidebarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse flex-column" id="sidebarNav">
+    <h4>How To</h4>
+    <ul class="list-group list-group-flush w-100 f-size-smaller-1">
+      <%= active_link_to 'Create a New Rails App', how_to_create_a_new_rails_app_path, class: 'list-group-item list-group-item-action w-100 p-2 border-0' %>
+      <%= active_link_to 'Create a Skeleton App', how_to_skeleton_app_path, class: 'list-group-item list-group-item-action w-100 p-2 border-0' %>
+      <%= active_link_to 'Setup Bootstrap', how_to_setup_bootstrap_path, class: 'list-group-item list-group-item-action w-100 p-2 border-0' %>
+    </ul>
+  </div>
+</nav>

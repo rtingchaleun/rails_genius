@@ -1,0 +1,28 @@
+<!--
+  -- This is the Has One Association component.
+  -- Includes the code and output example.
+-->
+
+<article id="has-one-association">
+  <h3 class="mt-5">has_one</h3>
+  <p class="w-75">This association indicates that each instance of a model contains or possesses exactly one instance of another model.
+    For example, if each user in your application has only one account, you'd declare the user model like this:</p>
+
+  <!-- EXAMPLE -->
+  <div class="example p-4">
+    <div class="col-12 d-flex justify-content-center">
+      <%= image_tag('active_record_associations/has_one_association.png', options = { class: 'img-fluid', alt: "Responsive image"}) %>
+    </div>
+  </div>
+  <!-- /EXAMPLE -->
+
+<!-- CODE BLOCK -->
+<pre class="bg-dark px-3"><code><span class="badge badge-secondary float-right mt-2">RUBY</span>
+<span class="block">class</span> User &lt; ApplicationRecord
+  <span class="method">has_one</span> <span class="symbol">:account</span>
+<span class="block">end</span>
+
+</code></pre>
+<!-- /CODE BLOCK -->
+
+</article>

@@ -1,0 +1,38 @@
+<!--
+  -- This is the Has One Through Association component.
+  -- Includes the code and output example.
+-->
+
+<article id="has-one-through-association">
+  <h3 class="mt-5">has_one :through</h3>
+  <p class="w-75">This association declares that one model can be matched with one instance of another model by proceeding through a third model.
+    For example, if each supplier has one account, and each account is associated with one account history, then the supplier model could look like this:</p>
+
+  <!-- EXAMPLE -->
+  <div class="example p-4">
+    <div class="col-12 d-flex justify-content-center">
+      <%= image_tag('active_record_associations/has_one_through_association.png', options = { class: 'img-fluid', alt: "Responsive image"}) %>
+    </div>
+  </div>
+  <!-- /EXAMPLE -->
+
+<!-- CODE BLOCK -->
+<pre class="bg-dark px-3"><code><span class="badge badge-secondary float-right mt-2">RUBY</span>
+<span class="block">class</span> Supplier &lt; ApplicationRecord
+  <span class="method">has_one</span> <span class="symbol">:account</span>
+  <span class="method">has_one</span> <span class="symbol">:account_history, through: :account</span>
+<span class="block">end</span>
+
+<span class="block">class</span> Account &lt; ApplicationRecord
+  <span class="method">belongs_to</span> <span class="symbol">:supplier</span>
+  <span class="method">has_one</span> <span class="symbol">:account_history</span>
+<span class="block">end</span>
+
+<span class="block">class</span> AccountHistory &lt; ApplicationRecord
+  <span class="method">belongs_to</span> <span class="symbol">:account</span>
+<span class="block">end</span>
+
+</code></pre>
+<!-- /CODE BLOCK -->
+
+</article>

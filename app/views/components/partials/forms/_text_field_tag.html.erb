@@ -1,0 +1,33 @@
+<!--
+  -- This is the Text Field Tag component.
+  -- Includes the code and output example.
+-->
+
+<article id="text-field-tag">
+  <h3 class="mt-5">Text Field Tag</h3>
+  <pre>text_field_tag(name, value, options = { })</pre>
+
+  <!-- EXAMPLE -->
+  <div class="example p-4">
+    <%= form_with(class: 'form') do %>
+      <div class="col-sm-9 col-md-6">
+        <div class="form-group">
+          <%= label_tag('text-field-name', 'Label', id: 'text-field-id', class: 'text-field-class') %>
+          <%= text_field_tag('text-field-name', 'default text', options = { placeholder: 'placeholder', id: 'text-field-id', class: 'form-control' }) %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <!-- /EXAMPLE -->
+
+<!-- CODE BLOCK -->
+<pre class="bg-dark px-3"><code><span class="badge badge-secondary float-right mt-2">HTML.ERB</span>
+<span class="block">&lt;div</span> class=<span class="string">"form-group"</span><span class="block">&gt;</span>
+  <span class="block">&lt;%=</span> <span class="method">label_tag</span>(<span class="string">'text-field-name'</span>, <span class="string">'Label'</span>, id: <span class="string">'text-field-id'</span>, class: <span class="string">'text-field-class'</span>) <span class="block">&gt;</span>
+  <span class="block">&lt;%=</span> <span class="method">text_field_tag</span>(<span class="string">'text-field-name'</span>, <span class="string">'default text'</span>, options = { placeholder: <span class="string">'placeholder'</span>, id: <span class="string">'text-field-id'</span>, class: <span class="string">'form-control'</span> }) <span class="block">&gt;</span>
+<span class="block">&lt;/div&gt;</span>
+
+</code></pre>
+<!-- /CODE BLOCK -->
+
+</article>

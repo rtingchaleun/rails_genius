@@ -1,0 +1,350 @@
+<div class="col-md-9 col-xl-8">
+  <main class="px-3">
+    <h1 class="mt-5">Forms</h1>
+    <p>This article will show how to use Rails Form Helpers with Bootstrap.</p>
+
+
+    <article>
+      <h3 class="mt-5">Basic Form</h3>
+
+      <div class="example p-4">
+        <%= form_with model: @article, class: 'form' do |f| %>
+          <div class="row">
+            <div class="col">
+              <div class="form-group">
+                <%= f.label(:name, 'Name') %>
+                <%= f.text_field(:name, class: 'form-control') %>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <div class="form-group">
+                <%= f.label(:address, 'Address') %>
+                <%= f.text_field(:address, class: 'form-control') %>
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-group">
+                <%= f.label(:phone, 'Phone') %>
+                <%= f.telephone_field(:phone, class: 'form-control') %>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <div class="form-group">
+                <%= f.label(:website, 'Website') %>
+                <%= f.url_field(:website, class: 'form-control') %>
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-group">
+                <%= f.label(:birthdate, 'Birth Date') %>
+                <%= f.date_field(:birthdate, class: 'form-control') %>
+              </div>
+            </div>
+          </div>
+          <%= f.submit('Submit', options = {class: 'btn btn-outline-primary'}) %>
+        <% end %>
+      </div>
+
+<pre class="bg-light px-3"><code><span class="badge badge-secondary float-right mt-2">HTML.ERB</span>
+&lt;%= form_with model: @article, class: 'form' do |f| %&gt;
+  &lt;div class="form-group"&gt;
+    &lt;%= label_tag(:name, 'Name') %&gt;
+    &lt;%= f.text_field(:name, class: 'form-control') %&gt;
+  &lt;/div&gt;
+  &lt;div class="form-group"&gt;
+    &lt;%= label_tag(:phone, 'Phone') %&gt;
+    &lt;%= f.telephone_field(:phone, class: 'form-control') %&gt;
+  &lt;/div&gt;
+  &lt;div class="form-group"&gt;
+    &lt;%= label_tag(:website, 'Website') %&gt;
+    &lt;%= f.url_field(:website, class: 'form-control') %&gt;
+  &lt;/div&gt;
+  &lt;div class="form-group"&gt;
+    &lt;%= label_tag(:birthdate, 'Birth Date') %&gt;
+    &lt;%= f.date_field(:birthdate, class: 'form-control') %&gt;
+  &lt;/div&gt;
+  &lt;%= submit_tag('Submit', options = {class: 'btn btn-outline-primary'}) %&gt;
+&lt;% end %&gt;
+
+</code></pre>
+    </article>
+
+
+    <article>
+      <h3 class="mt-5">Login form</h3>
+
+      <div class="example p-4">
+        <%= form_with model: @article, class: 'form' do |f| %>
+          <div class="form-group">
+            <%= f.label(:email, 'Email') %>
+            <%= f.email_field(:email, class: 'form-control') %>
+          </div>
+          <div class="form-group">
+            <%= f.label(:password, 'Password') %>
+            <%= f.password_field(:password, class: 'form-control') %>
+          </div>
+          <div class="form-group form-check">
+            <%= f.check_box(:remember, options = {class: 'form-check-input'}) %>
+            <%= f.label(:remember, 'Remember me', class: 'form-check-label') %>
+          </div>
+          <%= f.submit('Submit', options = {class: 'btn btn-outline-primary'}) %>
+        <% end %>
+      </div>
+
+<pre class="bg-light px-3"><code><span class="badge badge-secondary float-right mt-2">HTML.ERB</span>
+&lt;%= form_with model: @article, class: 'form' do |f| %&gt;
+  &lt;div class="form-group"&gt;
+    &lt;%= label_tag(:email, 'Email') %&gt;
+    &lt;%= f.email_field(:email, class: 'form-control') %&gt;
+  &lt;/div&gt;
+  &lt;div class="form-group"&gt;
+    &lt;%= label_tag(:password, 'Password') %&gt;
+    &lt;%= f.password_field(:password, class: 'form-control') %&gt;
+  &lt;/div&gt;
+  &lt;div class="form-group form-check"&gt;
+    &lt;%= check_box_tag(:remember, value = '1', checked = false, options = {class: 'form-check-input'}) %&gt;
+    &lt;%= label_tag(:remember, 'Remember me', class: 'form-check-label') %&gt;
+  &lt;/div&gt;
+  &lt;%= submit_tag('Submit', options = {class: 'btn btn-outline-primary'}) %&gt;
+&lt;% end %&gt;
+
+</code></pre>
+    </article>
+
+
+    <article>
+      <h3 class="mt-5">Search Form</h3>
+
+      <div class="example p-4">
+        <%= form_with(url: "/search", method: "get", class: 'form-inline') do %>
+          <%= search_field(:search, value = 'Search', options = {class: 'form-control', placeholder: 'Search'}) %>
+          <%= submit_tag('Search', options = {class: 'btn btn-outline-primary'}) %>
+        <% end %>
+      </div>
+
+
+<pre class="bg-light px-3"><code><span class="badge badge-secondary float-right mt-2">HTML.ERB</span>
+&lt;%= form_with(url: "/search", method: "get", class: 'form-inline') do %&gt;
+  &lt;%= search_field('search', value = 'Search', options = {class: 'form-control', placeholder: 'Search'}) %&gt;
+  &lt;%= submit_tag('Search', options = {class: 'btn btn-outline-primary'}) %&gt;
+&lt;% end %&gt;
+
+
+</code></pre>
+    </article>
+
+
+    <article>
+      <h3 class="mt-5">Text Fields</h3>
+
+      <div class="example p-4">
+        <%= form_with model: @article, class: 'form' do |f| %>
+          <div class="row justify-content-center">
+            <div class="col-6">
+              <div class="form-group">
+                <%= f.label(:name, 'Text Field') %>
+                <%= f.text_field(:name, class: 'form-control') %>
+              </div>
+            </div>
+          </div>
+          <div class="row justify-content-center">
+            <div class="col-6">
+              <div class="form-group">
+                <%= f.label(:email, 'Email Field') %>
+                <%= f.email_field(:email, class: 'form-control') %>
+              </div>
+            </div>
+          </div>
+          <div class="row justify-content-center">
+            <div class="col-6">
+              <div class="form-group">
+                <%= f.label(:address, 'Address Field') %>
+                <%= f.text_field(:address, class: 'form-control') %>
+              </div>
+            </div>
+          </div>
+          <div class="row justify-content-center">
+            <div class="col-6">
+              <div class="form-group">
+                <%= f.label(:phone, 'Phone Field') %>
+                <%= f.telephone_field(:phone, class: 'form-control') %>
+              </div>
+            </div>
+          </div>
+          <div class="row justify-content-center">
+            <div class="col-6">
+              <div class="form-group">
+                <%= f.label(:website, 'Website URL Field') %>
+                <%= f.url_field(:website, class: 'form-control') %>
+              </div>
+            </div>
+          </div>
+          <div class="row justify-content-center">
+            <div class="col-6">
+              <div class="form-group">
+                <%= f.label(:password, 'Password Field') %>
+                <%= f.password_field(:password, class: 'form-control') %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+
+<pre class="bg-light px-3"><code><span class="badge badge-secondary float-right mt-2">HTML.ERB</span>
+&lt;div class="example p-4"&gt;
+  &lt;%= form_with model: @article, class: 'form' do |f| %&gt;
+    &lt;div class="row justify-content-center"&gt;
+      &lt;div class="col-6"&gt;
+        &lt;div class="form-group"&gt;
+          ...
+          &lt;%= f.label(:name, 'Text Field') %&gt;
+          &lt;%= f.text_field(:name, class: 'form-control') %&gt;
+          ...
+          &lt;%= f.label(:email, 'Email Field') %&gt;
+          &lt;%= f.email_field(:email, class: 'form-control') %&gt;
+          ...
+          &lt;%= f.label(:address, 'Address Field') %&gt;
+          &lt;%= f.text_field(:address, class: 'form-control') %&gt;
+          ...
+          &lt;%= f.label(:phone, 'Phone Field') %&gt;
+          &lt;%= f.telephone_field(:phone, class: 'form-control') %&gt;
+          ...
+          &lt;%= f.label(:website, 'Website URL Field') %&gt;
+          &lt;%= f.url_field(:website, class: 'form-control') %&gt;
+          ...
+          &lt;%= f.label(:password, 'Password Field') %&gt;
+          &lt;%= f.password_field(:password, class: 'form-control') %&gt;
+          ...
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;% end %&gt;
+&lt;/div&gt;
+
+</code></pre>
+    </article>
+
+
+    <article>
+      <h3 class="mt-5">Text Area</h3>
+
+      <div class="example p-4">
+        <%= form_with model: @article, class: 'form' do |f| %>
+          <div class="form-group">
+            <%= label_tag(:message, 'Message') %>
+            <%= f.text_area(:message, class: 'form-control') %>
+          </div>
+          <%= submit_tag('Send', options = {class: 'btn btn-outline-primary'}) %>
+        <% end %>
+      </div>
+
+<pre class="bg-light px-3"><code><span class="badge badge-secondary float-right mt-2">HTML.ERB</span>
+&lt;%= form_with model: @article, class: 'form' do |f| %&gt;
+  &lt;div class="form-group"&gt;
+    &lt;%= label_tag(:message, 'Message') %&gt;
+    &lt;%= f.text_area(:message, class: 'form-control') %&gt;
+  &lt;/div&gt;
+  &lt;%= submit_tag('Send', options = {class: 'btn btn-outline-primary'}) %&gt;
+&lt;% end %&gt;
+
+</code></pre>
+    </article>
+
+
+    <article>
+      <h3 class="mt-5">Checkbox</h3>
+
+      <div class="example p-4">
+        <%= form_with model: @article, class: 'form' do |f| %>
+          <div class="form-check">
+            <%= check_box_tag(:option, 'dogs', true, options = {class: 'form-check-input'}) %>
+            <%= label_tag(:option, 'Dogs', class: 'form-check-label') %>
+          </div>
+          <div class="form-check">
+            <%= check_box_tag(:option, 'cats', false, class: 'form-check-input') %>
+            <%= label_tag(:option, 'Cats', class: 'form-check-label') %>
+          </div>
+          <div class="form-check">
+            <%= check_box_tag(:option, 'birds', false, class: 'form-check-input') %>
+            <%= label_tag(:option, 'Birds', class: 'form-check-label') %>
+          </div>
+        <% end %>
+      </div>
+
+<pre class="bg-light px-3"><code><span class="badge badge-secondary float-right mt-2">HTML.ERB</span>
+&lt;%= form_with model: @article, class: 'form' do |f| %&gt;
+  &lt;div class="form-check"&gt;
+    &lt;%= check_box_tag(:option, 'dogs', true, options = {class: 'form-check-input'}) %&gt;
+    &lt;%= label_tag(:option, 'Dogs', class: 'form-check-label') %&gt;
+  &lt;/div&gt;
+  &lt;div class="form-check"&gt;
+    &lt;%= check_box_tag(:option, 'cats', false, class: 'form-check-input') %&gt;
+    &lt;%= label_tag(:option, 'Cats', class: 'form-check-label') %&gt;
+  &lt;/div&gt;
+  &lt;div class="form-check"&gt;
+    &lt;%= check_box_tag(:option, 'birds', false, class: 'form-check-input') %&gt;
+    &lt;%= label_tag(:option, 'Birds', class: 'form-check-label') %&gt;
+  &lt;/div&gt;
+&lt;% end %&gt;
+
+</code></pre>
+    </article>
+
+
+    <article>
+      <h3 class="mt-5">Radio Button</h3>
+
+      <div class="example p-4">
+        <%= form_with model: @article, class: 'form' do |f| %>
+          <div class="form-check">
+            <%= radio_button_tag(:option, 'dogs', true, options = {class: 'form-check-input'}) %>
+            <%= label_tag(:option, 'Dogs', class: 'form-check-label') %>
+          </div>
+          <div class="form-check">
+            <%= radio_button_tag(:option, 'cats', false, class: 'form-check-input') %>
+            <%= label_tag(:option, 'Cats', class: 'form-check-label') %>
+          </div>
+          <div class="form-check">
+            <%= radio_button_tag(:option, 'birds', false, class: 'form-check-input') %>
+            <%= label_tag(:option, 'Birds', class: 'form-check-label') %>
+          </div>
+        <% end %>
+      </div>
+
+
+<pre class="bg-light px-3"><code><span class="badge badge-secondary float-right mt-2">HTML.ERB</span>
+&lt;%= form_with model: @article, class: 'form' do |f| %&gt;
+  &lt;div class="form-check"&gt;
+    &lt;%= radio_button_tag(:option, 'dogs', true, options = {class: 'form-check-input'}) %&gt;
+    &lt;%= label_tag(:option, 'Dogs', class: 'form-check-label') %&gt;
+  &lt;/div&gt;
+  &lt;div class="form-check"&gt;
+    &lt;%= radio_button_tag(:option, 'cats', false, class: 'form-check-input') %&gt;
+    &lt;%= label_tag(:option, 'Cats', class: 'form-check-label') %&gt;
+  &lt;/div&gt;
+  &lt;div class="form-check"&gt;
+    &lt;%= radio_button_tag(:option, 'birds', false, class: 'form-check-input') %&gt;
+    &lt;%= label_tag(:option, 'Birds', class: 'form-check-label') %&gt;
+  &lt;/div&gt;
+&lt;% end %&gt;
+
+</code></pre>
+    </article>
+
+
+
+  </main>
+</div>
+
+<div class="d-none d-xl-block col-xl-2">
+  <ul class="list-group list-group-flush my-3 p-0">
+    <%= link_to 'Basic Form', '#', class: 'list-group-item list-group-item-action w-100 p-2 border-0' %>
+    <%= link_to 'Login Form', '#', class: 'list-group-item list-group-item-action w-100 p-2 border-0' %>
+    <%= link_to 'Search Form', '#', class: 'list-group-item list-group-item-action w-100 p-2 border-0' %>
+    <%= link_to 'Text Area', '#', class: 'list-group-item list-group-item-action w-100 p-2 border-0' %>
+  </ul>
+</div>

@@ -1,0 +1,27 @@
+<div class="col-md-9 col-xl-8">
+  <main class="px-3">
+    <h1 class="mt-5">Forms</h1>
+    <p class="w-75">This article will show how to use Rails Form Helpers with Bootstrap.</p>
+
+    <%= render 'components/partials/forms/text_field_tag' %>
+
+    <%= render 'components/partials/forms/select_tag' %>
+
+    <%= render 'components/partials/forms/check_box_tag' %>
+
+    <%= render 'components/partials/forms/radio_button_tag' %>
+
+    <%= render 'components/partials/forms/submit_tag' %>
+
+  </main>
+</div>
+
+<div class="d-none d-xl-block col-xl-2">
+  <ul class="list-group list-group-flush my-3 p-0">
+    <%= link_to 'Text Field Tag', '#text-field-tag', class: 'list-group-item list-group-item-action w-100 p-2 border-0' %>
+    <%= link_to 'Select Tag (Dropdown)', '#select-tag', class: 'list-group-item list-group-item-action w-100 p-2 border-0' %>
+    <%= link_to 'Checkbox Tag', '#check-box-tag', class: 'list-group-item list-group-item-action w-100 p-2 border-0' %>
+    <%= link_to 'Radio Button Tag', '#radio-button-tag', class: 'list-group-item list-group-item-action w-100 p-2 border-0' %>
+    <%= link_to 'Submit Tag', '#submit-tag', class: 'list-group-item list-group-item-action w-100 p-2 border-0' %>
+  </ul>
+</div>

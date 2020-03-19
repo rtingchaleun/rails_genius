@@ -1,0 +1,24 @@
+<!--
+  -- This is the Set Root component.
+  -- Includes the code and output example.
+-->
+
+<article id="set-root">
+  <h3 class="mt-5">Set Root</h3>
+  <p class="w-75">Open the file <code>config/routes.rb</code></p>
+
+<!-- CODE BLOCK -->
+<pre class="bg-dark px-3"><code><span class="badge badge-secondary float-right mt-2">config/routes.rb</span>
+<span class="constructor">Rails</span><span class="method">.application.routes.draw</span> <span class="block">do</span>
+
+  <span class="comment"># Set Root Path</span>
+  root 'posts#index'
+  
+  resources :posts
+
+<span class="block">end</span>
+
+</code></pre>
+<!-- /CODE BLOCK -->
+
+</article>

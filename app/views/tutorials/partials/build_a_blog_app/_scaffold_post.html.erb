@@ -1,0 +1,71 @@
+<!--
+  -- This is the Scaffold Post component.
+  -- Includes the code and output example.
+-->
+
+<article id="scaffold-post">
+  <h3 class="mt-5">Scaffold Post</h3>
+  <p class="w-75">Navigate to the app folder in Terminal.</p>
+
+<!-- CODE BLOCK -->
+<pre class="bg-dark px-3"><code><span class="badge badge-secondary float-right mt-2">Terminal</span>
+$ rails generate scaffold post title:string body:text
+
+</code></pre>
+<!-- /CODE BLOCK -->
+
+  <!-- EXAMPLE -->
+  <div class="example p-4">
+<pre>
+Running via Spring preloader in process 39359
+  invoke  active_record
+  create    db/migrate/20200313145123_create_posts.rb
+  create    app/models/post.rb
+  invoke    test_unit
+  create      test/models/post_test.rb
+  create      test/fixtures/posts.yml
+  invoke  resource_route
+   route    resources :posts
+  invoke  scaffold_controller
+  create    app/controllers/posts_controller.rb
+  invoke    erb
+  create      app/views/posts
+  create      app/views/posts/index.html.erb
+  create      app/views/posts/edit.html.erb
+  create      app/views/posts/show.html.erb
+  create      app/views/posts/new.html.erb
+  create      app/views/posts/_form.html.erb
+  invoke    test_unit
+  create      test/controllers/posts_controller_test.rb
+  create      test/system/posts_test.rb
+  invoke    helper
+  create      app/helpers/posts_helper.rb
+  invoke      test_unit
+  invoke    jbuilder
+  create      app/views/posts/index.json.jbuilder
+  create      app/views/posts/show.json.jbuilder
+  create      app/views/posts/_post.json.jbuilder
+  invoke  assets
+  invoke    scss
+  create      app/assets/stylesheets/posts.scss
+  invoke  scss
+  create    app/assets/stylesheets/scaffolds.scss
+</pre>
+  </div>
+  <!-- /EXAMPLE -->
+
+  <p class="w-75">We need to run another <code>db:migrate</code> and restart the server.</p>
+
+<!-- CODE BLOCK -->
+<pre class="bg-dark px-3"><code><span class="badge badge-secondary float-right mt-2">Terminal</span>
+<span class="comment"># turn off server</span>
+<span class="comment">...</span>
+$ rails db:migrate
+<span class="comment">...</span>
+
+$ rails server
+
+</code></pre>
+<!-- /CODE BLOCK -->
+
+</article>

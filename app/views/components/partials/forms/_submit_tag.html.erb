@@ -1,0 +1,27 @@
+<!--
+  -- This is the Submit Tag component.
+  -- Includes the code and output example.
+-->
+
+<article id="submit-tag">
+  <h3 class="mt-5">Submit Tag</h3>
+  <pre>submit_tag(value = "Save Changes", options = { })</pre>
+
+  <!-- EXAMPLE -->
+  <div class="example p-4">
+    <%= form_with(class: 'form') do %>
+      <div class="col-sm-9 col-md-6">
+        <%= submit_tag(value = 'Submit', options = { id: 'submit-id', class: 'btn btn-primary', data: { confirm: 'question?'} }) %>
+      </div>
+    <% end %>
+  </div>
+  <!-- /EXAMPLE -->
+
+<!-- CODE BLOCK -->
+<pre class="bg-dark px-3"><code><span class="badge badge-secondary float-right mt-2">HTML.ERB</span>
+<span class="block">&lt;%=</span> <span class="method">submit_tag</span>(value = <span class="string">'Submit'</span>, options = { id: <span class="string">'submit-id'</span>, class: <span class="string">'btn btn-primary'</span>, data: { confirm: <span class="string">'question?'</span>} }) <span class="block">%&gt;</span>
+
+</code></pre>
+<!-- /CODE BLOCK -->
+
+</article>

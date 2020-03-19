@@ -1,0 +1,39 @@
+<!--
+  -- This is the Has Many Through Association component.
+  -- Includes the code and output example.
+-->
+
+<article id="has-many-through-association">
+  <h3 class="mt-5">has_many :through</h3>
+  <p class="w-75">This association declares that one model can be matched with zero or more instances of another model by proceeding through a third model.
+    For example, consider a medical practice where patients make appointments to see physicians. The relevant association declarations could look like this:</p>
+
+  <!-- EXAMPLE -->
+  <div class="example p-4">
+    <div class="col-12 d-flex justify-content-center">
+      <%= image_tag('active_record_associations/has_many_through_association.png', options = { class: 'img-fluid', alt: "Responsive image"}) %>
+    </div>
+  </div>
+  <!-- /EXAMPLE -->
+
+<!-- CODE BLOCK -->
+<pre class="bg-dark px-3"><code><span class="badge badge-secondary float-right mt-2">RUBY</span>
+<span class="block">class</span> Physician &lt; ApplicationRecord
+  <span class="method">has_many</span> <span class="symbol">:appointments</span>
+  <span class="method">has_many</span> <span class="symbol">:patients, through: :appointments</span>
+<span class="block">end</span>
+
+<span class="block">class</span> Appointment &lt; ApplicationRecord
+  <span class="method">belongs_to</span> <span class="symbol">:physician</span>
+  <span class="method">belongs_to</span> <span class="symbol">:patient</span>
+<span class="block">end</span>
+
+<span class="block">class</span> Patient &lt; ApplicationRecord
+  <span class="method">has_many</span> <span class="symbol">:appointments</span>
+  <span class="method">has_many</span> <span class="symbol">:physicians, through: :appointments</span>
+<span class="block">end</span>
+
+</code></pre>
+<!-- /CODE BLOCK -->
+
+</article>

@@ -1,0 +1,33 @@
+<!--
+  -- This is the Check Box Tag component.
+  -- Includes the code and output example.
+-->
+
+<article id="check-box-tag">
+  <h3 class="mt-5">Check Box Tag</h3>
+  <pre>check_box_tag(name, value = "1", checked = false, options = { })</pre>
+
+  <!-- EXAMPLE -->
+  <div class="example p-4">
+    <%= form_with(class: 'form') do %>
+      <div class="col-sm-9 col-md-6">
+        <div class="form-check">
+          <%= check_box_tag('check-box-name', value = '1', checked = false, options = { id: 'check-box-id', class: 'form-check-input', disabled: false }) %>
+          <%= label_tag('check-box-name', 'Option', id: 'check-box-id', class: 'form-check-label') %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <!-- /EXAMPLE -->
+
+<!-- CODE BLOCK -->
+<pre class="bg-dark px-3"><code><span class="badge badge-secondary float-right mt-2">HTML.ERB</span>
+<span class="block">&lt;div</span> class=<span class="string">"form-check"</span><span class="block">&gt;</span>
+  <span class="block">&lt;%=</span> <span class="method">check_box_tag</span>(<span class="string">'check-box-name'</span>, value = <span class="string">'1'</span>, checked = <span class="nil">false</span>, options = { id: <span class="string">'check-box-id'</span>, class: <span class="string">'form-check-input'</span>, disabled: <span class="nil">false</span> }) <span class="block">%&gt;</span>
+  <span class="block">&lt;%=</span> <span class="method">label_tag</span>(<span class="string">'check-box-name'</span>, <span class="string">'Option'</span>, id: <span class="string">'check-box-id'</span>, class: <span class="string">'form-check-label'</span>) <span class="block">%&gt;</span>
+<span class="block">&lt;/div&gt;</span>
+
+</code></pre>
+<!-- /CODE BLOCK -->
+
+</article>

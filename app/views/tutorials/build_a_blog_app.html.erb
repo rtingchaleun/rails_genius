@@ -1,0 +1,35 @@
+<div class="col-md-9 col-xl-8">
+  <main class="px-3">
+    <h1 class="mt-5">Build a Blog App</h1>
+    <p class="w-75">This tutorial will show how to create a simple Blog App with Bootstrap.</p>
+    <ul>
+      <li>Users</li>
+      <li>Posts (create, read, update, destroy)</li>
+      <li>Comments</li>
+      <li>Must be signed in to create posts.</li>
+      <li>Anyone can read all posts.</li>
+      <li>Must be signed in to create comments.</li>
+      <li>Anyone can read all comments.</li>
+    </ul>
+
+    <%= render 'tutorials/partials/yay_youre_on_rails' %>
+
+    <%= render 'tutorials/partials/build_a_blog_app/scaffold_post' %>
+
+    <%= render 'tutorials/partials/build_a_blog_app/set_root' %>
+
+    <%= render 'tutorials/partials/build_a_blog_app/add_bootstrap' %>
+
+  </main>
+</div>
+
+
+
+<div class="d-none d-xl-block col-xl-2">
+  <ul class="list-group list-group-flush my-3 p-0">
+    <%= link_to 'New Rails App', '#new-rails-app', class: 'list-group-item list-group-item-action w-100 p-2 border-0' %>
+    <%= link_to 'Scaffold Post', '#scaffold-post', class: 'list-group-item list-group-item-action w-100 p-2 border-0' %>
+    <%= link_to 'Set Root', '#set-root', class: 'list-group-item list-group-item-action w-100 p-2 border-0' %>
+    <%= link_to 'Add Bootstrap', '#add-bootstrap', class: 'list-group-item list-group-item-action w-100 p-2 border-0' %>
+  </ul>
+</div>

@@ -1,0 +1,32 @@
+<!--
+  -- This is the Has and Belongs To Many Association component.
+  -- Includes the code and output example.
+-->
+
+<article id="has-and-belongs-to-many-association">
+  <h3 class="mt-5">has_and_belongs_to_many</h3>
+  <p class="w-75">A <code>has_and_belongs_to_many</code> association creates a direct many-to-many connection with another model, with no intervening model.
+    For example, if your application includes assemblies and parts, with each assembly having many parts and each part appearing in many assemblies, you could declare the models this way:</p>
+
+  <!-- EXAMPLE -->
+  <div class="example p-4">
+    <div class="col-12 d-flex justify-content-center">
+      <%= image_tag('active_record_associations/has_and_belongs_to_many_association.png', options = { class: 'img-fluid', alt: "Responsive image"}) %>
+    </div>
+  </div>
+  <!-- /EXAMPLE -->
+
+<!-- CODE BLOCK -->
+<pre class="bg-dark px-3"><code><span class="badge badge-secondary float-right mt-2">RUBY</span>
+<span class="block">class</span> Assembly &lt; ApplicationRecord
+  <span class="method">has_and_belongs_to_many</span> <span class="symbol">:parts</span>
+<span class="block">end</span>
+
+<span class="block">class</span> Part &lt; ApplicationRecord
+  <span class="method">has_and_belongs_to_many</span> <span class="symbol">:assemblies</span>
+<span class="block">end</span>
+
+</code></pre>
+<!-- /CODE BLOCK -->
+
+</article>

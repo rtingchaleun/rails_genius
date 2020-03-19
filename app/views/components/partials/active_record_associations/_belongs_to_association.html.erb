@@ -1,0 +1,28 @@
+<!--
+  -- This is the Belongs To Association component.
+  -- Includes the code and output example.
+-->
+
+<article id="belongs-to-association">
+  <h3 class="mt-5">belongs_to</h3>
+  <p class="w-75">This association declares that each instance of a model 'belongs to' one instance of another model.
+    For example, if your application includes authors and books, and each book can be assigned to exactly one author, you'd declare the book model this way:</p>
+
+  <!-- EXAMPLE -->
+  <div class="example p-4">
+    <div class="col-12 d-flex justify-content-center">
+      <%= image_tag('active_record_associations/belongs_to_association.png', options = { class: 'img-fluid', alt: "Responsive image"}) %>
+    </div>
+  </div>
+  <!-- /EXAMPLE -->
+
+<!-- CODE BLOCK -->
+<pre class="bg-dark px-3"><code><span class="badge badge-secondary float-right mt-2">RUBY</span>
+<span class="block">class</span> Book &lt; ApplicationRecord
+  <span class="method">belongs_to</span> <span class="symbol">:author</span>
+<span class="block">end</span>
+
+</code></pre>
+<!-- /CODE BLOCK -->
+
+</article>
