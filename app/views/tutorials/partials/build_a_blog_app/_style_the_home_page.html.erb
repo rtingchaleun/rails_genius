@@ -1,0 +1,164 @@
+<!--
+  -- This is the Style the Home Page component.
+  -- Includes the code and output example.
+-->
+
+<article id="style-the-home-page">
+  <h3 class="mt-5">Style the Home Page</h3>
+  <p class="w-75">For this tutorial, we are going to use the <a href="https://getbootstrap.com/docs/4.4/examples/">Navbar Fixed</a>
+    template from the Bootstrap website. After you copy everything inside the body tag and clean it up a bit, it should look like this.
+  </p>
+
+<!-- CODE BLOCK -->
+<pre class="bg-dark px-3"><code><span class="badge badge-secondary float-right mt-2">views/posts/index.html.erb</span>
+  <span class="block">&lt;p</span> id=<span class="string">"notice"</span><span class="block">&gt;</span><span class="block">&lt;%=</span> notice <span class="block">%&gt;</span><span class="block">&lt;/p</span><span class="block">&gt;</span>
+
+  <span class="block">&lt;nav</span> class=<span class="string">"navbar navbar-expand-md navbar-light fixed-top border-bottom"</span><span class="block">&gt;</span>
+    <span class="block">&lt;a</span> class=<span class="string">"navbar-brand"</span> href=<span class="string">"#"</span><span class="block">&gt;</span>My Blog App<span class="block">&lt;/a&gt;</span>
+    <span class="block">&lt;button</span> class=<span class="string">"navbar-toggler"</span> type=<span class="string">"button"</span> data-toggle=<span class="string">"collapse"</span> data-target=<span class="string">"#navbarCollapse"</span> aria-controls=<span class="string">"navbarCollapse"</span> aria-expanded=<span class="string">"false"</span> aria-label=<span class="string">"Toggle navigation"</span><span class="block">&gt;</span>
+      <span class="block">&lt;span</span> class=<span class="string">"navbar-toggler-icon"</span><span class="block">&gt;</span><span class="block">&lt;/span&gt;</span>
+    <span class="block"><span class="block">&lt;span</span></span>
+    <span class="block">&lt;div</span> class=<span class="string">"collapse navbar-collapse"</span> id=<span class="string">"navbarCollapse"</span><span class="block">&gt;</span>
+      <span class="block">&lt;ul</span> class=<span class="string">"navbar-nav mr-auto"</span><span class="block">&gt;</span>
+        <span class="block">&lt;li</span> class=<span class="string">"nav-item"</span><span class="block">&gt;</span>
+          <span class="block">&lt;a</span> class=<span class="string">"nav-link"</span> href=<span class="string">"#"</span><span class="block">&gt;</span>My Posts<span class="block">&lt;/a&gt;</span>
+        <span class="block">&lt;/li&gt;</span>
+      <span class="block">&lt;/ul&gt;</span>
+      <span class="block">&lt;ul</span> class=<span class="string">"navbar-nav"</span><span class="block">&gt;</span>
+        <span class="block">&lt;li</span> class=<span class="string">"nav-item"</span><span class="block">&gt;</span>
+          <span class="block">&lt;a</span> class=<span class="string">"btn btn-outline-secondary"</span> href=<span class="string">"#"</span><span class="block">&gt;</span>Login<span class="block">&lt;/a&gt;</span>
+        <span class="block">&lt;/li&gt;</span>
+        <span class="block">&lt;li</span> class=<span class="string">"nav-item"</span><span class="block">&gt;</span>
+          <span class="block"><span class="block"><span class="block">&lt;%</span>=</span></span> <span class="method">link_to</span> <span class="string">'New Post'</span>, new_post_path, class: <span class="string">'btn'</span> <span class="block">%&gt;</span>
+        <span class="block">&lt;/li&gt;</span>
+      <span class="block">&lt;/ul&gt;</span>
+    <span class="block">&lt;/div&gt;</span>
+  <span class="block">&lt;/nav&gt;</span>
+
+  <span class="block">&lt;main</span> class=<span class="string">"container mt-5 pt-3"</span><span class="block">&gt;</span>
+    <span class="block">&lt;div</span> class=<span class="string">"jumbotron"</span><span class="block">&gt;</span>
+      <span class="block">&lt;table</span> class=<span class="string">"table"</span><span class="block">&gt;</span>
+        <span class="block">&lt;thead&gt;</span>
+          <span class="block">&lt;/tr&gt;</span>
+            <span class="block">&lt;th&gt;</span>Title<span class="block">&lt;/th&gt;</span>
+            <span class="block">&lt;th&gt;</span>Body<span class="block">&lt;/th&gt;</span>
+            <span class="block">&lt;th</span> colspan=<span class="string">"3"</span><span class="block">&gt;</span><span class="block">&lt;/th&gt;</span>
+          <span class="block">&lt;/tr&gt;</span>
+        <span class="block">&lt;/thead&gt;</span>
+        <span class="block">&lt;tbody&gt;</span>
+          <span class="block">&lt;%</span> @posts.<span class="method">each</span> do |post| <span class="block">%&gt;</span>
+            <span class="block"><span class="block"><span class="block">&lt;/tr&gt;</span></span></span>
+              <span class="block">&lt;td&gt;</span><span class="block"><span class="block"><span class="block">&lt;%</span>=</span></span> post.<span class="method">title</span> <span class="block">%&gt;</span><span class="block">&lt;/td&gt;</span>
+              <span class="block">&lt;td&gt;</span><span class="block"><span class="block"><span class="block">&lt;%</span>=</span></span> post.<span class="method">body</span> <span class="block">%&gt;</span><span class="block">&lt;/td&gt;</span>
+              <span class="block">&lt;td&gt;</span><span class="block"><span class="block"><span class="block">&lt;%</span>=</span></span> <span class="method">link_to</span> <span class="string">'Show'</span>, post <span class="block">%&gt;</span><span class="block">&lt;/td&gt;</span>
+              <span class="block">&lt;td&gt;</span><span class="block"><span class="block"><span class="block">&lt;%</span>=</span></span> <span class="method">link_to</span> <span class="string">'Edit'</span>, edit_post_path(post) <span class="block">%&gt;</span><span class="block">&lt;/td&gt;</span>
+              <span class="block">&lt;td&gt;</span><span class="block"><span class="block"><span class="block">&lt;%</span>=</span></span> <span class="method">link_to</span> <span class="string">'Destroy'</span>, post, method: <span class="symbol">:delete</span>, data: { confirm: <span class="string">'Are you sure?'</span> } <span class="block">%&gt;</span><span class="block">&lt;/td&gt;</span>
+            <span class="block">&lt;/tr&gt;</span>
+          <span class="block">&lt;%</span> end <span class="block">%&gt;</span>
+        <span class="block">&lt;/tbody&gt;</span>
+      <span class="block">&lt;/table&gt;</span>
+    <span class="block">&lt;/div&gt;</span>
+  <span class="block">&lt;/main&gt;</span>
+
+</code></pre>
+<!-- /CODE BLOCK -->
+
+  <!-- EXAMPLE -->
+  <div class="example p-4">
+    <div class="col-12 d-flex justify-content-center">
+      <%= image_tag('tutorials/build_a_blog/style_home_page_1.png', options = { class: 'card-img-bot img-fluid', alt: "placeholder_image" }) %>
+    </div>
+  </div>
+  <!-- /EXAMPLE -->
+
+  <p class="w-75">Before moving on, we should separate this into more manageable code using <code>partials</code>.
+    You should end up with the following 3 files looking like this.
+  </p>
+
+<!-- CODE BLOCK -->
+<pre class="bg-dark px-3"><code><span class="badge badge-secondary float-right mt-2">views/layouts/application.html.erb</span>
+&lt;!DOCTYPE html&gt;
+<span class="block">&lt;html&gt;</span>
+  <span class="block">&lt;head&gt;</span>
+    <span class="block">&lt;title&gt;</span>BlogApp<span class="block">&lt;/title&gt;</span>
+    <span class="block">&lt;%=</span> csrf_meta_tags <span class="block">%&gt;</span>
+    <span class="block">&lt;%=</span> csp_meta_tag <span class="block">%&gt;</span>
+
+    <span class="comment">&lt;!-- Bootstrap Links --&gt;</span>
+    <span class="block">&lt;link</span> rel=<span class="string">"stylesheet"</span> href=<span class="string"><span class="string">"https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"</span></span> integrity=<span class="string">"sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"</span> crossorigin=<span class="string">"anonymous"</span><span class="block">&gt;</span>
+    <span class="block">&lt;script</span> src=<span class="string">"https://code.jquery.com/jquery-3.4.1.slim.min.js"</span> integrity=<span class="string">"sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"</span> crossorigin=<span class="string">"anonymous"</span>&gt;<span class="block">&lt;/script&gt;</span>
+    <span class="block">&lt;script</span> src=<span class="string">"https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"</span> integrity=<span class="string">"sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"</span> crossorigin=<span class="string">"anonymous"</span>&gt;<span class="block">&lt;/script&gt;</span>
+    <span class="block">&lt;script</span> src=<span class="string">"https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"</span> integrity=<span class="string">"sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"</span> crossorigin=<span class="string">"anonymous"</span>&gt;<span class="block">&lt;/script&gt;</span>
+
+    <span class="block">&lt;%=</span> <span class="method">stylesheet_link_tag</span> <span class="string">'application'</span>, media: <span class="string">'all'</span>, <span class="string">'data-turbolinks-track'</span>: <span class="string">'reload'</span> <span class="block">%&gt;</span>
+    <span class="block">&lt;%=</span> <span class="method">javascript_pack_tag</span> <span class="string">'application'</span>, <span class="string">'data-turbolinks-track'</span>: <span class="string">'reload'</span> <span class="block">%&gt;</span>
+  <span class="block">&lt;/head&gt;</span>
+
+  <span class="block">&lt;body&gt;</span>
+    <span class="block">&lt;p</span> id=<span class="string">"notice"</span><span class="block">&gt;</span><span class="block">&lt;%=</span> notice <span class="block">%&gt;</span><span class="block">&lt;/p</span><span class="block">&gt;</span>
+    <span class="block">&lt;%=</span> render <span class="string">'layouts/nav'</span> <span class="block">%&gt;</span>
+    <span class="block">&lt;%=</span> yield <span class="block">%&gt;</span>
+  <span class="block">&lt;/body&gt;</span>
+<span class="block">&lt;/html&gt;</span>
+
+</code></pre>
+<!-- /CODE BLOCK -->
+
+<!-- CODE BLOCK -->
+<pre class="bg-dark px-3"><code><span class="badge badge-secondary float-right mt-2">views/layouts/_nav.html.erb</span>
+<span class="block">&lt;nav</span> class=<span class="string">"navbar navbar-expand-md navbar-light fixed-top border-bottom"</span><span class="block">&gt;</span>
+  <span class="block">&lt;a</span> class=<span class="string">"navbar-brand"</span> href=<span class="string">"#"</span><span class="block">&gt;</span>My Blog App<span class="block">&lt;/a&gt;</span>
+  <span class="block">&lt;button</span> class=<span class="string">"navbar-toggler"</span> type=<span class="string">"button"</span> data-toggle=<span class="string">"collapse"</span> data-target=<span class="string">"#navbarCollapse"</span> aria-controls=<span class="string">"navbarCollapse"</span> aria-expanded=<span class="string">"false"</span> aria-label=<span class="string">"Toggle navigation"</span><span class="block">&gt;</span>
+    <span class="block">&lt;span</span> class=<span class="string">"navbar-toggler-icon"</span><span class="block">&gt;</span><span class="block">&lt;/span&gt;</span>
+  <span class="block"><span class="block">&lt;span</span></span>
+  <span class="block">&lt;div</span> class=<span class="string">"collapse navbar-collapse"</span> id=<span class="string">"navbarCollapse"</span><span class="block">&gt;</span>
+    <span class="block">&lt;ul</span> class=<span class="string">"navbar-nav mr-auto"</span><span class="block">&gt;</span>
+      <span class="block">&lt;li</span> class=<span class="string">"nav-item"</span><span class="block">&gt;</span>
+        <span class="block">&lt;a</span> class=<span class="string">"nav-link"</span> href=<span class="string">"#"</span><span class="block">&gt;</span>My Posts<span class="block">&lt;/a&gt;</span>
+      <span class="block">&lt;/li&gt;</span>
+    <span class="block">&lt;/ul&gt;</span>
+    <span class="block">&lt;ul</span> class=<span class="string">"navbar-nav"</span><span class="block">&gt;</span>
+      <span class="block">&lt;li</span> class=<span class="string">"nav-item"</span><span class="block">&gt;</span>
+        <span class="block">&lt;a</span> class=<span class="string">"btn btn-outline-secondary"</span> href=<span class="string">"#"</span><span class="block">&gt;</span>Login<span class="block">&lt;/a&gt;</span>
+      <span class="block">&lt;/li&gt;</span>
+      <span class="block">&lt;li</span> class=<span class="string">"nav-item"</span><span class="block">&gt;</span>
+        <span class="block"><span class="block"><span class="block">&lt;%</span>=</span></span> <span class="method">link_to</span> <span class="string">'New Post'</span>, new_post_path, class: <span class="string">'btn'</span> <span class="block">%&gt;</span>
+      <span class="block">&lt;/li&gt;</span>
+    <span class="block">&lt;/ul&gt;</span>
+  <span class="block">&lt;/div&gt;</span>
+<span class="block">&lt;/nav&gt;</span>
+
+</code></pre>
+<!-- /CODE BLOCK -->
+
+<!-- CODE BLOCK -->
+<pre class="bg-dark px-3"><code><span class="badge badge-secondary float-right mt-2">views/posts/index.html.erb</span>
+<span class="block">&lt;main</span> class=<span class="string">"container mt-5 pt-3"</span><span class="block">&gt;</span>
+  <span class="block">&lt;div</span> class=<span class="string">"jumbotron"</span><span class="block">&gt;</span>
+    <span class="block">&lt;table</span> class=<span class="string">"table"</span><span class="block">&gt;</span>
+      <span class="block">&lt;thead&gt;</span>
+        <span class="block">&lt;/tr&gt;</span>
+          <span class="block">&lt;th&gt;</span>Title<span class="block">&lt;/th&gt;</span>
+          <span class="block">&lt;th&gt;</span>Body<span class="block">&lt;/th&gt;</span>
+          <span class="block">&lt;th</span> colspan=<span class="string">"3"</span><span class="block">&gt;</span><span class="block">&lt;/th&gt;</span>
+        <span class="block">&lt;/tr&gt;</span>
+      <span class="block">&lt;/thead&gt;</span>
+      <span class="block">&lt;tbody&gt;</span>
+        <span class="block">&lt;%</span> @posts.<span class="method">each</span> do |post| <span class="block">%&gt;</span>
+          <span class="block"><span class="block"><span class="block">&lt;/tr&gt;</span></span></span>
+            <span class="block">&lt;td&gt;</span><span class="block"><span class="block"><span class="block">&lt;%</span>=</span></span> post.<span class="method">title</span> <span class="block">%&gt;</span><span class="block">&lt;/td&gt;</span>
+            <span class="block">&lt;td&gt;</span><span class="block"><span class="block"><span class="block">&lt;%</span>=</span></span> post.<span class="method">body</span> <span class="block">%&gt;</span><span class="block">&lt;/td&gt;</span>
+            <span class="block">&lt;td&gt;</span><span class="block"><span class="block"><span class="block">&lt;%</span>=</span></span> <span class="method">link_to</span> <span class="string">'Show'</span>, post <span class="block">%&gt;</span><span class="block">&lt;/td&gt;</span>
+            <span class="block">&lt;td&gt;</span><span class="block"><span class="block"><span class="block">&lt;%</span>=</span></span> <span class="method">link_to</span> <span class="string">'Edit'</span>, edit_post_path(post) <span class="block">%&gt;</span><span class="block">&lt;/td&gt;</span>
+            <span class="block">&lt;td&gt;</span><span class="block"><span class="block"><span class="block">&lt;%</span>=</span></span> <span class="method">link_to</span> <span class="string">'Destroy'</span>, post, method: <span class="symbol">:delete</span>, data: { confirm: <span class="string">'Are you sure?'</span> } <span class="block">%&gt;</span><span class="block">&lt;/td&gt;</span>
+          <span class="block">&lt;/tr&gt;</span>
+        <span class="block">&lt;%</span> end <span class="block">%&gt;</span>
+      <span class="block">&lt;/tbody&gt;</span>
+    <span class="block">&lt;/table&gt;</span>
+  <span class="block">&lt;/div&gt;</span>
+<span class="block">&lt;/main&gt;</span>
+
+</code></pre>
+<!-- /CODE BLOCK -->
+
+</article>

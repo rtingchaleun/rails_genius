@@ -32,9 +32,6 @@ code span.method {
 code span.num {
   color: #ff00ff; /* magenta */
 }
-code span.erb {
-  color: #ff00ff; /* magenta */
-}
 code span.nil {
   color: #1de9b6; /* teal accent-3 */
 }
@@ -46,6 +43,9 @@ code span.symbol {
 }
 code span.tag {
   color: #42a5f5; /* blue */
+}
+code span.var {
+  color: #ffff00; /* yellow */
 }
 
 

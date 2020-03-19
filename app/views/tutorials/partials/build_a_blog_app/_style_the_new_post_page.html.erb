@@ -1,0 +1,72 @@
+<!--
+  -- This is the Style the New Post Page component.
+  -- Includes the code and output example.
+-->
+
+<article id="style-the-new-post-page">
+  <h3 class="mt-5">Style the New Post Page</h3>
+  <p class="w-75">The New Post page should start off looking like this.</p>
+
+<!-- CODE BLOCK -->
+<pre class="bg-dark px-3"><code><span class="badge badge-secondary float-right mt-2">views/posts/new.html.erb</span>
+<span class="block">&lt;main</span> class=<span class="string">"container mt-5 pt-3"</span><span class="block">&gt;</span>
+  <span class="block">&lt;div</span> class=<span class="string">"jumbotron"</span><span class="block">&gt;</span>
+    <span class="block">&lt;h1&gt;</span>New Post<span class="block">&lt;/h1&gt;</span>
+
+    <span class="block">&lt;%=</span> render <span class="string">'form'</span>, post: <span class="var">@post</span> <span class="block">%&gt;</span>
+  <span class="block">&lt;/div&gt;</span>
+<span class="block">&lt;/main&gt;</span>
+
+</code></pre>
+<!-- /CODE BLOCK -->
+
+  <!-- EXAMPLE -->
+  <div class="example p-4">
+    <div class="col-12 d-flex justify-content-center">
+      <%= image_tag('tutorials/build_a_blog/style_new_post_1.png', options = { class: 'card-img-bot img-fluid', alt: "placeholder_image" }) %>
+    </div>
+  </div>
+  <!-- /EXAMPLE -->
+
+  <p class="w-75">Next we need to edit the form partial. After adding the Bootstrap styles, it should look like this.</p>
+
+<!-- CODE BLOCK -->
+<pre class="bg-dark px-3"><code><span class="badge badge-secondary float-right mt-2">views/posts/_form.html.erb</span>
+<span class="block">&lt;%=</span> <span class="method">form_with</span>(model: post, local: true) do |form| <span class="block">%&gt;</span>
+  <span class="block">&lt;%</span> if post.errors.any? <span class="block">%&gt;</span>
+    <span class="block">&lt;div</span> id=<span class="string">"error_explanation"</span><span class="block">&gt;</span>
+      <span class="block">&lt;h2&gt;</span><span class="block">&lt;%=</span> pluralize(post.errors.count, <span class="string">"error"</span>) <span class="block">%&gt;</span> prohibited this post from being saved:<span class="block">&lt;/h2&gt;</span>
+      <span class="block">&lt;ul&gt;</span>
+        <span class="block">&lt;%</span> post.errors.full_messages.each do |message| <span class="block">%&gt;</span>
+          <span class="block">&lt;li&gt;</span><span class="block">&lt;%=</span> message <span class="block">%&gt;</span><span class="block">&lt;/li&gt;</span>
+        <span class="block">&lt;%</span> end <span class="block">%&gt;</span>
+      <span class="block">&lt;/ul&gt;</span>
+    <span class="block">&lt;/div&gt;</span>
+  <span class="block">&lt;%</span> end <span class="block">%&gt;</span>
+  <span class="block">&lt;div</span> class=<span class="string">"form-group"</span><span class="block">&gt;</span>
+    <span class="block">&lt;%=</span> form.label(<span class="symbol">:title</span>, class: <span class="string">'text-field-class'</span>) <span class="block">%&gt;</span>
+    <span class="block">&lt;%=</span> form.text_field(<span class="symbol">:title</span>, class: <span class="string">'form-control'</span>) <span class="block">%&gt;</span>
+  <span class="block">&lt;/div&gt;</span>
+  <span class="block">&lt;div</span> class=<span class="string">"form-group"</span><span class="block">&gt;</span>
+    <span class="block">&lt;%=</span> form.label(<span class="symbol">:body</span>) <span class="block">%&gt;</span>
+    <span class="block">&lt;%=</span> form.text_area(<span class="symbol">:body</span>, class: <span class="string">'form-control'</span>) <span class="block">%&gt;</span>
+  <span class="block">&lt;/div&gt;</span>
+  <span class="block">&lt;div</span> class=<span class="string">"actions"</span><span class="block">&gt;</span>
+    <span class="block">&lt;%=</span> form.submit(<span class="string">'Submit'</span>, class: <span class="string">'btn btn-primary'</span>) <span class="block">%&gt;</span>
+  <span class="block">&lt;/div&gt;</span>
+<span class="block">&lt;%</span> end <span class="block">%&gt;</span>
+
+</code></pre>
+<!-- /CODE BLOCK -->
+
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Progress Check</h5>
+      <p class="card-text">At this point, you should test the page. You should still be able to create, read, update, and delete posts.</p>
+      <%= image_tag('tutorials/build_a_blog/style_new_post_form_1.png', options = { class: 'card-img-bot img-fluid' }) %>
+      <%= image_tag('tutorials/build_a_blog/style_new_post_form_2.png', options = { class: 'card-img-bot img-fluid' }) %>
+      <%= image_tag('tutorials/build_a_blog/style_new_post_form_3.png', options = { class: 'card-img-bot img-fluid' }) %>
+    </div>
+  </div>
+
+</article>
