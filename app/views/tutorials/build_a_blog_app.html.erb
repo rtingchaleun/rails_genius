@@ -6,9 +6,9 @@
       <li>Users</li>
       <li>Posts (create, read, update, destroy)</li>
       <li>Comments</li>
-      <li>Must be signed in to create posts.</li>
+      <li>Must be signed in to create, update, or delete your own posts.</li>
       <li>Anyone can read all posts.</li>
-      <li>Must be signed in to create comments.</li>
+      <li>Must be signed in to create, update, or delete your own comments.</li>
       <li>Anyone can read all comments.</li>
     </ul>
 
@@ -19,6 +19,8 @@
     <%= render 'tutorials/partials/build_a_blog_app/set_root' %>
 
     <%= render 'tutorials/partials/build_a_blog_app/add_bootstrap' %>
+
+    <%= render 'tutorials/partials/build_a_blog_app/get_a_template' %>
 
   </main>
 </div>
@@ -31,5 +33,6 @@
     <%= link_to 'Scaffold Post', '#scaffold-post', class: 'list-group-item list-group-item-action w-100 p-2 border-0' %>
     <%= link_to 'Set Root', '#set-root', class: 'list-group-item list-group-item-action w-100 p-2 border-0' %>
     <%= link_to 'Add Bootstrap', '#add-bootstrap', class: 'list-group-item list-group-item-action w-100 p-2 border-0' %>
+    <%= link_to 'Get a Template', '#get-a-template', class: 'list-group-item list-group-item-action w-100 p-2 border-0' %>
   </ul>
 </div>
