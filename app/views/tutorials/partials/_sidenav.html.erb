@@ -1,17 +1,17 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-white my-3 p-0">
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#sidebarNav" aria-controls="sidebarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse flex-column" id="sidebarNav">
-    <h4>App Tutorials</h4>
-    <ul class="list-group list-group-flush w-100 f-size-smaller-1">
-      <%= active_link_to 'Build a Blog App', tutorials_build_a_blog_app_path, class: 'list-group-item list-group-item-action w-100 p-2 border-0' %>
-      <!-- <a href="#" class="list-group-item list-group-item-action w-100 p-2 border-0 disabled">Twitter App</a>
-      <a href="#" class="list-group-item list-group-item-action w-100 p-2 border-0 disabled">Google Keep App</a>
-      <a href="#" class="list-group-item list-group-item-action w-100 p-2 border-0 disabled">Messenger App</a>
-      <a href="#" class="list-group-item list-group-item-action w-100 p-2 border-0 disabled">Tinder App</a>
-      <a href="#" class="list-group-item list-group-item-action w-100 p-2 border-0 disabled">Google Maps App</a>
-      <a href="#" class="list-group-item list-group-item-action w-100 p-2 border-0 disabled">Uber App</a> -->
-    </ul>
-  </div>
-</nav>
+<!-- Side Navigation Menu -->
+<div class="d-none col-sm-12 d-lg-block col-lg-3 bg-white border-right m-0 p-0" style="max-width: 300px">
+  <nav class="navbar navbar-expand-lg navbar-light bg-white m-0 p-0">
+    <div  class="navbar-collapse flex-column my-3 px-2">
+      <h4>Table of Contents</h4>
+      <ul class="list-group list-group-flush w-100 f-size-smaller-1">
+        <%= link_to 'New Rails App', '#new-rails-app', class: 'list-group-item list-group-item-action w-100 p-2 border-0' %>
+        <%= link_to 'Scaffold Post', '#scaffold-post', class: 'list-group-item list-group-item-action w-100 p-2 border-0' %>
+        <%= link_to 'Set Root', '#set-root', class: 'list-group-item list-group-item-action w-100 p-2 border-0' %>
+        <%= link_to 'Add Bootstrap', '#add-bootstrap', class: 'list-group-item list-group-item-action w-100 p-2 border-0' %>
+        <%= link_to 'Style the Home Page', '#style-the-home-page', class: 'list-group-item list-group-item-action w-100 p-2 border-0' %>
+        <%= link_to 'Style the New Post Page', '#style-the-new-post-page', class: 'list-group-item list-group-item-action w-100 p-2 border-0' %>
+      </ul>
+    </div>
+  </nav>
+</div>
+<!-- /.col-md-3 -->

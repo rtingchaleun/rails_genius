@@ -12,34 +12,97 @@
 
     <!-- Bootstrap 4.4 -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body onresize="resizeSpy()">
     <%= render 'layouts/partials/nav' %>
+
+    <!-- SideNav Trigger Button -->
+    <div class="navbar-dark d-sm-block d-lg-none">
+      <button id="trigger-mobile-side-nav" class="navbar-toggler btn-circle bg-danger text-white" type="button" onclick="slideMobileSideNav()">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+
+    <!-- Mobile Navigation Menu -->
+    <div id="mobile-side-nav" class="bg-white border-right">
+      <h4>Table of Contents</h4>
+      <ul class="list-group list-group-flush w-100 f-size-smaller-1">
+        <%= link_to 'New Rails App', '#new-rails-app', class: 'list-group-item list-group-item-action w-100 p-2 border-0' %>
+        <%= link_to 'Scaffold Post', '#scaffold-post', class: 'list-group-item list-group-item-action w-100 p-2 border-0' %>
+        <%= link_to 'Set Root', '#set-root', class: 'list-group-item list-group-item-action w-100 p-2 border-0' %>
+        <%= link_to 'Add Bootstrap', '#add-bootstrap', class: 'list-group-item list-group-item-action w-100 p-2 border-0' %>
+        <%= link_to 'Style the Home Page', '#style-the-home-page', class: 'list-group-item list-group-item-action w-100 p-2 border-0' %>
+        <%= link_to 'Style the New Post Page', '#style-the-new-post-page', class: 'list-group-item list-group-item-action w-100 p-2 border-0' %>
+      </ul>
+    </div>
+    <!-- /#mobile-side-nav -->
+
 
     <div class="container-fluid">
       <div class="row">
-        <div class="col-md-3 col-xl-2">
-          <% if controller.controller_name == 'components' %>
-            <%= render 'components/partials/sidenav' %>
-          <% elsif controller.controller_name == 'docs' %>
-            <%= render 'docs/partials/sidenav' %>
-          <% elsif controller.controller_name == 'how_to' %>
-            <%= render 'how_to/partials/sidenav' %>
-          <% elsif controller.controller_name == 'tutorials' %>
-            <%= render 'tutorials/partials/sidenav' %>
-          <% end %>
-        </div>
-        <%= yield %>
-      </div>
-    </div>
+        <% if controller.controller_name == 'components' %>
+          <%= render 'components/partials/sidenav' %>
+        <% elsif controller.controller_name == 'docs' %>
+          <%= render 'docs/partials/sidenav' %>
+        <% elsif controller.controller_name == 'how_to' %>
+          <%= render 'how_to/partials/sidenav' %>
+        <% elsif controller.controller_name == 'tutorials' %>
+          <%= render 'tutorials/partials/sidenav' %>
+        <% end %>
 
-    <!-- Bootstrap 4.4 -->
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+        <%= yield %>
+
+      </div>
+      <!-- /.row -->
+    </div>
+    <!-- /.container-fluid -->
+
+    <script>
+      window.onload = function() {
+        console.log("window loaded");
+        resizeSpy();
+      }
+    </script>
+
+    <script>
+  		function resizeSpy() {
+        console.log("init resizeSpy");
+        let x = window.innerWidth;
+        console.log(x);
+
+  			if (x < 992) {
+          showMobileNav();
+  			} else {
+          hideMobileNav();
+  			}
+  		}
+
+      function hideMobileNav() {
+        console.log("hiding mobile nav");
+        $("#mobile-side-nav").addClass("d-none");
+        $("#mobile-side-nav").removeClass("d-block");
+      }
+
+      function showMobileNav() {
+        console.log("showing mobile nav");
+        $("#mobile-side-nav").addClass("d-block");
+        $("#mobile-side-nav").removeClass("d-none");
+      }
+  	</script>
+
+    <script>
+      function slideMobileSideNav() {
+        console.log("sliding mobile nav");
+        $("#mobile-side-nav").toggleClass("show");
+      }
+    </script>
+
   </body>
 </html>

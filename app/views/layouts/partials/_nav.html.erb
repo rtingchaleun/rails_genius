@@ -1,6 +1,11 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom">
   <a class="navbar-brand" href="#">Rails Genius</a>
-  <div class="navbar-collapse">
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#topNav" aria-controls="topNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div id="topNav" class="collapse navbar-collapse">
     <ul class="navbar-nav">
       <li class="nav-item">
         <%= active_link_to 'Components', components_forms_path, class: 'nav-link' %>
@@ -8,8 +13,13 @@
       <li class="nav-item">
         <%= active_link_to 'How To', how_to_create_a_new_rails_app_path, class: 'nav-link' %>
       </li>
-      <li class="nav-item">
-        <%= active_link_to 'App Tutorials', tutorials_build_a_blog_app_path, class: 'nav-link' %>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          App Tutorials
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <%= active_link_to 'Blog App', tutorials_build_a_blog_app_path, class: 'dropdown-item' %>
+        </div>
       </li>
     </ul>
   </div>
