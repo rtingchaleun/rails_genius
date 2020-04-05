@@ -10,9 +10,16 @@
       <li class="nav-item">
         <%= active_link_to 'Components', components_forms_path, class: 'nav-link' %>
       </li>
-      <li class="nav-item">
-        <%= active_link_to 'How To', how_to_create_a_new_rails_app_path, class: 'nav-link' %>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          How To
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <%= active_link_to 'Create a New Rails App', how_to_create_a_new_rails_app_path, class: 'dropdown-item' %>
+        </div>
       </li>
+
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           App Tutorials
