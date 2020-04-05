@@ -9,9 +9,20 @@
 //  3. Colors
 
 
+
 // 1. Fonts
 // ==========================================================================
+h1, h2, h3 {
+  font-family: 'Lora', 'Cambria', serif;
+}
 
+body {
+  font-family: 'Nunito', 'Lato', 'Helvetica Neue', 'Arial', sans-serif;
+}
+
+pre code {
+  font-family: 'Inconsolata', monospace;
+}
 
 
 // 2. Sizes
