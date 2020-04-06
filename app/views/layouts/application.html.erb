@@ -30,25 +30,13 @@
       </button>
     </div>
 
-
     <div class="container-fluid">
       <div class="row">
-        <% if controller.controller_name == 'components' %>
-          <%= render 'components/partials/sidenav' %>
-        <% elsif controller.controller_name == 'docs' %>
-          <%= render 'docs/partials/sidenav' %>
-        <% elsif controller.controller_name == 'how_to' %>
-          <%= render 'how_to/partials/sidenav' %>
-        <% elsif controller.controller_name == 'tutorials' %>
-          <%= render 'tutorials/partials/sidenav' %>
-        <% end %>
 
         <%= yield %>
 
       </div>
-      <!-- /.row -->
     </div>
-    <!-- /.container-fluid -->
 
     <script>
       window.onload = function() {
@@ -87,6 +75,25 @@
         console.log("sliding mobile nav");
         $("#mobile-side-nav").toggleClass("show");
       }
+    </script>
+
+    <!-- For persistent checkboxes -->
+    <script>
+      var checkboxValues = JSON.parse(localStorage.getItem('checkboxValues')) || {};
+      var $checkboxes = $("#checkbox-container :checkbox");
+
+      // save checkbox values whenever the value changes
+      $checkboxes.on("change", function(){
+        $checkboxes.each(function(){
+          checkboxValues[this.id] = this.checked;
+        });
+        localStorage.setItem("checkboxValues", JSON.stringify(checkboxValues));
+      });
+
+      // iterate over checkbox values and set them when the page loads
+      $.each(checkboxValues, function(key, value) {
+        $("#" + key).prop('checked', value);
+      });
     </script>
 
   </body>

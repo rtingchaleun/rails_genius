@@ -1,0 +1,40 @@
+<!--
+  -- This is the Yay! You're On Rails component.
+  -- Includes the code and output example.
+-->
+<hr>
+
+<article id="start-a-new-rails-app" class="my-5">
+  <h3 class="mt-5">Start a new Rails app</h3>
+  <p class="w-75">Create a new rails app and start up the server.</p>
+
+<pre class="bg-dark px-3"><code><span class="badge badge-secondary float-right mt-2">TERMINAL</span>
+$ rails new blog_app
+$ cd blog_app
+$ bundle install
+$ rails db:migrate
+$ rails server
+
+</code></pre>
+
+<p>Go to <code>http://localhost:3000/</code></p>
+
+    <!-- EXAMPLE -->
+    <div class="example p-4">
+      <div class="col-12 d-flex justify-content-center">
+        <%= image_tag('tutorials/yay_youre_on_rails.png', options = { class: 'img-fluid', alt: "Responsive image"}) %>
+      </div>
+    </div>
+    <!-- /EXAMPLE -->
+
+<!-- CODE BLOCK -->
+<pre class="bg-dark px-3"><code><span class="badge badge-secondary float-right mt-2">Terminal</span>
+$ git add .
+$ git commit -m "initial commit"
+
+</code></pre>
+<!-- /CODE BLOCK -->
+
+</article>
+
+<hr>
